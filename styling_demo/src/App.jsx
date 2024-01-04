@@ -1,0 +1,49 @@
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+import styled from '@emotion/styled';
+import Card from './Card';
+const Badge=styled.span`
+  background-color:${props=>props.variantColor?props.variantColor:'blue'};
+  color:#fff;
+  padding:20px;
+  border-radius:3px;
+  margin:10px;
+`;
+
+//using styled component for styling
+const PrimaryBadge =styled(Badge)`
+  background-color:#ddd;
+  color:#444;
+`;
+function App() {
+  return(
+    <div>
+      <h1 className='text-6xl font-bold underline italic'>hello</h1>
+      <br />
+      <Badge>Default</Badge>
+      <PrimaryBadge>Value</PrimaryBadge>
+      <Badge variantColor="green">Green</Badge>
+      <Badge variantColor="red">Red</Badge>
+      <Badge variantColor="yellow">Yellow</Badge>
+      <br /><br />
+      <div className='flex p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg items-center space-x-4'>
+        <div className="shrink-0">
+          <img src="data:image/png;base64,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" alt="Logo" className="h-12 w-12" />
+        </div>
+        <div>
+          <div className=" text-xl font-medium text-black">Chitchat</div>
+          <p className="text-slate-500">
+            U have new message!
+          </p>
+        </div>
+        
+      </div>
+      <br />
+      <Card/>
+    </div>
+  )
+}
+
+export default App

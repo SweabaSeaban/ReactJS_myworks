@@ -5,25 +5,23 @@ import TodoList from './TodoList';
 
 function App() {
   
-  const [todos,setTodos]=useState(()=>{
-    const localVal=localStorage.getItem("ITEMS")
-    if(localVal==null) return []
+  const [todos,setTodos]=useState([])
+  //   const localVal=localStorage.getItem("ITEMS")
+  //   if(localVal==null) return []
 
-    return JSON.parse(localVal)
-  })
+  //   return JSON.parse(localVal)
+  // })
 
-  useEffect(()=>{
-    localStorage.setItem("ITEMS",JSON.stringify(todos))
-  },[todos])
+  // useEffect(()=>{
+  //   localStorage.setItem("ITEMS",JSON.stringify(todos))
+  // },[todos])
 
   function addTodo(title){
-    setTodos((currentTodos)=>{
-      return [
-        ...currentTodos,
-        {
-          id:crypto.randomUUID(),title,completed:false
-        },
-      ]
+    const todoItem={id:crypto.randomUUID(),title,completed:false}
+    setTodos(todos=>{
+      const currentTodos=[...todos,todoItem]
+      console.log(currentTodos)
+      return currentTodos
     })
   }
 
@@ -42,9 +40,13 @@ function App() {
   }
 
   function deleteTodo(id){
-    setTodos(currentTodos=>{
-      return currentTodos.filter(t=>t.id!==id)
+    setTodos(todos=>{
+      // return todos.filter(t=>t.id!==id)
+      const currentTodos=todos.filter(t=>t.id!==id)
+      console.log(currentTodos)
+      return currentTodos
     })
+    
   }
   
   return (

@@ -1,4 +1,4 @@
-const TodoItem = ({id,title,completed,toggleTodo,deleteTodo}) => {
+const TodoItem = ({toggleTodo,deleteTodo}) => {
     return ( 
         <li>
             <label>

@@ -6,8 +6,10 @@ function App() {
 
   return (
     <div>
-      <Navbar/>
-      <Home/>
+      <div>
+        <Navbar/>
+        <Home/>
+      </div>
     </div>
     
   )

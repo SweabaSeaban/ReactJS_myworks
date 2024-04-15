@@ -1,34 +1,15 @@
-import { BrowserRouter as Router,Route,Link, Routes } from 'react-router-dom'
-import './App.css';
-import Home from './components/home';
-import About from './components/About';
-import Contact from './components/Contact';
-import React from 'react';
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
 
-function  App(){
-  return(
-    <Router>
-      <div className="App">
-        <ul className="App-header">
-          <li>
-            <Link to="/home">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li>
-        </ul>
-      </div>
-      
-       <Routes>
-        <Route path='/home' element={<Home/>}></Route>
-        <Route path='/about' element={<About/>}></Route>
-        <Route path='/contact' element={<Contact/>}></Route>
-       </Routes>
-     
-    </Router>
+function App() {
+  const [count, setCount] = useState(0)
+
+  return (
+    <>
+      <h1 className='bg-green-300'>React router dom</h1>
+    </>
   )
 }
 
